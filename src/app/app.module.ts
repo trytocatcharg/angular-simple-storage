@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WalletFormaterPipe } from './pipes/wallet-format.pipe';
+import {MatButtonModule} from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +35,11 @@ import { WalletFormaterPipe } from './pipes/wallet-format.pipe';
     MatMenuModule,
     MatIconModule,
     MatInputModule,
+    MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     StoreModule.forRoot({'eth': EthereumReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

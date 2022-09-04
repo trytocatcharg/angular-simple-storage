@@ -1,18 +1,43 @@
-.alert-box {
-    color:#555;
-    border-radius:10px;
-    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:15px;
-    padding:10px 10px 10px 10px;
-    margin: 10px;
-    text-align: center;
-}
+app-dashboard{
+    .alert-box {
+        color:#555;
+        border-radius:10px;
+        font-family:Tahoma,Geneva,Arial,sans-serif;font-size:15px;
+        padding:10px 10px 10px 10px;
+        margin: 10px;
+        margin-top: 20px;
+        text-align: center;
+    }
 
-.alert-box span {
-    font-weight:bold;
-    text-transform:uppercase;
-}
+    .current-value {
+        display: flex;
+    }
 
-.notice {
-    background:#e3f7fc no-repeat 10px 50%;
-    border:1px solid #8ed9f6;
+    .progress-bar {
+        margin: 0px 5px;
+        margin-bottom: 10px;
+        width: 30px !important;
+        height: 30px !important;
+
+        svg {
+            width: auto !important;
+            height: auto !important
+        }
+
+    }
+
+    .alert-box span {
+        font-weight:bold;
+        text-transform:uppercase;
+    }
+
+    .notice {
+        background:#e3f7fc no-repeat 10px 50%;
+        border:1px solid #8ed9f6;
+    }
+
+    .btn-material {
+        margin-left: 20px;
+    }
+
 }

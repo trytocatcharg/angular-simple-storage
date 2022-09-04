@@ -2,7 +2,16 @@
 <ng-container *ngIf="isConnected$ |async; else notConnected" >
     <mat-card>
         <mat-card-title>Property</mat-card-title>
-        <mat-card-subtitle>current value {{currentValue}}</mat-card-subtitle>
+        <div class="current-value">
+            <mat-card-subtitle>current value {{currentValue}}</mat-card-subtitle>
+            <mat-progress-spinner
+                *ngIf="showCurrentValueSpinner"
+                class="progress-bar"
+                [color]="'primary'"
+                [mode]="mode">
+            </mat-progress-spinner>
+        </div>
+        
         
         <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>Value</mat-label>
@@ -10,7 +19,9 @@
             <div *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
               <mat-icon>close</mat-icon>
             </div>
-          </mat-form-field>
+        </mat-form-field>
+
+          <button class="btn-material" mat-raised-button color="primary" (click)="update()">Update</button>
 
           <div class="contract direction">
             <span></span>

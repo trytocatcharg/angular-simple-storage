@@ -17,12 +17,7 @@ public addresMetaMask = '';
 
   ngOnInit(): void {
     this.isMetaMaskInstalled= !!window.ethereum;
-    const address = window.sessionStorage.getItem('address');
-    if (address) {
-      this.isMetaMaskConnected = true;
-      this.isMetaMaskConnected = true;
-      this.addresMetaMask = address;
-    }
+
   }
 
 

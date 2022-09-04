@@ -10,7 +10,6 @@ export class EthereumService {
 
 
      connect() {
-        const provider = ethers.providers.getDefaultProvider(environment.PROVIDER);
 
      }
 

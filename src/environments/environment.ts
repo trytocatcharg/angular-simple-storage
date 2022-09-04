@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  PROVIDER: 'https://eth-goerli.g.alchemy.com/v2/20SE0FEFBClIcFblVbEWSUP7fCxgQN9B',
+  goerliContractSimpleStorage: '0x63f0cd50751C48D6d12D236CF4157f34732Cf500'
 };
 
 /*
