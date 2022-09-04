@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AppState, EthereumState } from '../../store/ethereum.state';
+import {Store, select} from '@ngrx/store';
+import { requestWalletSuccess } from '../../store/actions/wallet.action';
+import { selectWallet } from '../../store/selectors/wallet.selector';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +13,7 @@ export class AppHeaderComponent implements OnInit {
 public isMetaMaskInstalled = false;
 public isMetaMaskConnected = false;
 public addresMetaMask = '';
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.isMetaMaskInstalled= !!window.ethereum;
@@ -17,7 +21,7 @@ public addresMetaMask = '';
     if (address) {
       this.isMetaMaskConnected = true;
       this.isMetaMaskConnected = true;
-      this.addresMetaMask = address.substring(0, 5) + '...' + address.substring(address.length - 4) ;
+      this.addresMetaMask = address;
     }
   }
 
@@ -28,8 +32,10 @@ public addresMetaMask = '';
     }).then((res) => {
       const connectedAccount = res[0];
       this.isMetaMaskConnected = true;
-      console.log(connectedAccount);
-      this.addresMetaMask = connectedAccount.substring(0, 5) + '...' + connectedAccount.substring(connectedAccount.length - 4);
+      this.store.dispatch(requestWalletSuccess({
+          wallet: connectedAccount
+      }))
+      this.addresMetaMask = connectedAccount;
       window.sessionStorage.setItem('address', connectedAccount);
     })
   }

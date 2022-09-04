@@ -7,7 +7,7 @@
             <ng-container *ngIf="isMetaMaskConnected">
                 <div class="connect">
                    <mat-icon aria-hidden="false" fontIcon="person" (click)="click()" ></mat-icon>    
-                    <span>{{addresMetaMask}}</span>    
+                    <span>{{addresMetaMask | walletFormat}}</span>    
                 </div>
             </ng-container>
             <ng-container *ngIf="!isMetaMaskConnected">

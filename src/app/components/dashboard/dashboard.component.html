@@ -1,1 +1,24 @@
-<p>dashboard-component works!</p>
+
+<ng-container *ngIf="isConnected$ |async; else notConnected" >
+    <mat-card>
+        <mat-card-title>Property</mat-card-title>
+        <mat-card-subtitle>current value {{currentValue}}</mat-card-subtitle>
+        
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Value</mat-label>
+            <input matInput type="text" [(ngModel)]="value">
+            <div *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </div>
+          </mat-form-field>
+
+          <div class="contract direction">
+            <span></span>
+          </div>
+          
+    </mat-card>
+</ng-container>
+
+<ng-template #notConnected>
+    <div class="alert-box notice"><span>notice: </span>Connect your wallet to <b>Goerli</b> network with Metamask.</div>
+</ng-template>
