@@ -1,0 +1,16 @@
+.header {
+    .spacer {
+      flex: 1 1 auto;
+    }
+  
+    .title {
+      cursor: pointer;
+    }
+
+    .connect {
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
+  }
+  

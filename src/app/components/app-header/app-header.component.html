@@ -1,0 +1,24 @@
+<mat-toolbar class="header" color="primary">
+    <span class="title">Simple Storage</span>
+     <span class="spacer"></span>
+
+     <button matTooltip="Connect">
+        <ng-container *ngIf="isMetaMaskInstalled">
+            <ng-container *ngIf="isMetaMaskConnected">
+                <div class="connect">
+                   <mat-icon aria-hidden="false" fontIcon="person" (click)="click()" ></mat-icon>    
+                    <span>{{addresMetaMask}}</span>    
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!isMetaMaskConnected">
+                <mat-icon aria-hidden="false" fontIcon="person" (click)="click()" ></mat-icon>    
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!isMetaMaskInstalled">
+            <h4 (click)="clickInstallMetaMask()">install metamask</h4>
+        </ng-container>
+    
+   </button>
+    
+  </mat-toolbar>
+  
