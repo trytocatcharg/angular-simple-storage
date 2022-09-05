@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { StoreModule } from '@ngrx/store';
-import { EthereumReducer } from './store/reducers/ethereum.reducer';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
@@ -19,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WalletFormaterPipe } from './pipes/wallet-format.pipe';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import { EthereumReducer, metaReducers, reducers } from './store/reducers/ethereum.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ReactiveFormsModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    StoreModule.forRoot({'eth': EthereumReducer}),
+    StoreModule.forRoot(reducers, {metaReducers}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

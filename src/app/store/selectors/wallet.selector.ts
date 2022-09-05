@@ -1,11 +1,11 @@
 import { createSelector } from '@ngrx/store';
-import { AppState, EthereumState } from '../ethereum.state';
+import { AppState, User } from '../ethereum.state';
 
 
-export const walletUpdated = (state: AppState) => state.eth;
+export const walletUpdated = (state: AppState) => state.user;
 
 
 export const selectWallet = createSelector(
     walletUpdated,
-    (state: EthereumState) => state.wallet
+    (state: User) => state.wallet
 );

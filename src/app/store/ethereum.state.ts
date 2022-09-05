@@ -2,13 +2,13 @@ export const EthereumWalletFeature = 'wallet';
 
 
 export interface AppState {
-    eth: EthereumState
+    user: User;   
 }
 
-export interface EthereumState {
+export interface User {
     wallet: string;
 }
 
-export const EthereumitialState: AppState = {eth: {
-    wallet: ''
-}};
+export const EthereumitialState: User = {
+        wallet: ''
+};

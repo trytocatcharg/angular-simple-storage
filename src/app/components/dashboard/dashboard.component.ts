@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppState } from '../../store/ethereum.state';
 import {Store, select} from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { selectWallet } from 'src/app/store/selectors/wallet.selector';
 import { ethers } from 'ethers';
 import { environment } from 'src/environments/environment';
@@ -27,7 +27,11 @@ export class DashboardComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.isConnected$ = this.store.pipe(select(selectWallet));
+    this.isConnected$ = this.store.pipe(
+                              select(selectWallet),
+                              map( e=> {
+                                return e as string
+                              } ));
 
 
     this.isConnected$.subscribe((r) => {
