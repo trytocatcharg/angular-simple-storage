@@ -18,15 +18,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WalletFormaterPipe } from './pipes/wallet-format.pipe';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
-import { EthereumReducer, metaReducers, reducers } from './store/reducers/ethereum.reducer';
-
+import {  metaReducers, reducers } from './store/reducers/ethereum.reducer';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CustomSnackbarComponent } from './components/custom-snackbar/custom-snackbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     AppHeaderComponent,
     AppFooterComponent,
     DashboardComponent,
-    WalletFormaterPipe
+    WalletFormaterPipe,
+    CustomSnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { EthereumReducer, metaReducers, reducers } from './store/reducers/ethere
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
     MatCardModule,
     MatProgressSpinnerModule,
     StoreModule.forRoot(reducers, {metaReducers}),

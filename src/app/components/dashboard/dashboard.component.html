@@ -20,11 +20,14 @@
               <mat-icon>close</mat-icon>
             </div>
         </mat-form-field>
-
-          <button class="btn-material" mat-raised-button color="primary" (click)="update()">Update</button>
-
-          <div class="contract direction">
-            <span></span>
+        <div class="flex-tx-progress">
+          <button class="btn-material" mat-raised-button color="primary"  [disabled]="isDisabled" (click)="update()">Update</button>
+            <mat-progress-spinner
+            *ngIf="showCurrentTxProcessSpinner"
+            class="progress-bar"
+            [color]="'primary'"
+            [mode]="mode">
+        </mat-progress-spinner>
           </div>
           
     </mat-card>
